@@ -1,2 +1,11 @@
-package com.unoveo.securityjwt.securityconfig;public class ApplicationConfiguration {
+package com.unoveo.securityjwt.securityconfig;
+
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+//@ComponentScan
+@Configuration
+public class ApplicationConfiguration {
+
+
 }
