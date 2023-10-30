@@ -182,9 +182,13 @@
       <artifactId>poi</artifactId>
       <version>5.2.2</version>
     </dependency>
-
-
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.2.2</version> <!-- Latest version at the time of writing -->
+    </dependency>
   </dependencies>
+
   <build>
     <finalName>react-cal-backend</finalName>
     <plugins>

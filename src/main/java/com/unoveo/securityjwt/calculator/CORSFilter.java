@@ -3,9 +3,11 @@ package com.unoveo.securityjwt.calculator;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.IOException;
 @WebFilter("/")
+@CrossOrigin
 public class CORSFilter implements Filter {
 
     @Override

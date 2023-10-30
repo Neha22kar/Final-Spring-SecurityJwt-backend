@@ -74,6 +74,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers("/api/test/**").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/calServlet1").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 );
         http.authenticationProvider(authenticationProvider());
