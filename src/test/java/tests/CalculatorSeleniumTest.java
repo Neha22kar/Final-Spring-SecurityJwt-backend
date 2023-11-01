@@ -70,11 +70,12 @@ public class CalculatorSeleniumTest {
         assertEquals("nkb", usernameInput.getAttribute("value"));
         assertEquals("nkb", passwordInput.getAttribute("value"));
         submitButton.click();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+        WebElement calculatorLink = driver.findElement(By.linkText("Calculator"));
+        calculatorLink.click();
 
-
-//        WebElement container = driver.findElement(By.className("calculatorContainer"));
-//        assertEquals(container.getText()," Sorry You Are Not Logged In");
+        driver.manage().timeouts().implicitlyWait(60000, TimeUnit.SECONDS);
+        driver.get("http://localhost:3000/calc");
+        driver.manage().timeouts().implicitlyWait(60000, TimeUnit.SECONDS);
         driver.quit();
     }
 
