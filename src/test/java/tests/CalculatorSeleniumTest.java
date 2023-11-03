@@ -2,11 +2,15 @@ package tests;
 
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -128,41 +132,53 @@ public class CalculatorSeleniumTest {
         assertEquals("52",resultDisplay.getAttribute("value"));
         driver.quit();
     }
-//    @Test
-//    public void testUserCalculatorPageAccess() {
-//        WebDriver driver = new ChromeDriver();
-//        driver.get("http://localhost:3000/login");
+    @Test
+    public void testUserCalculatorPageAccess() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://localhost:3000/login");
+
+        WebElement usernameInput = driver.findElement(By.name("username"));
+        WebElement passwordInput = driver.findElement(By.name("password"));
+
+        WebElement loginButton = driver.findElement(By.id("loginBtn"));
+
+        usernameInput.sendKeys("jay");
+        passwordInput.sendKeys("jay");
+
+        loginButton.click();
+
 //
-//        WebElement usernameInput = driver.findElement(By.name("username"));
-//        WebElement passwordInput = driver.findElement(By.name("password"));
-//
-//        WebElement loginButton = driver.findElement(By.id("loginBtn"));
-//
-//        usernameInput.sendKeys("km");
-//        passwordInput.sendKeys("km");
-//
-//        loginButton.click();
-//
-////
-////        String currentUrl = driver.getCurrentUrl();
-////        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-////        assertEquals("http://localhost:3000/login", currentUrl);
-//
-//        WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
-//        btn4.click();
-//        WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[2]"));
-//        btn2.click();
-//        WebElement btnPlus = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[1]"));
-//        btnPlus.click();
-//        WebElement btn1  = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[1]"));
-//        btn1.click();
-//        WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
-//        btn0.click();
-//
-//        WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
-//        btnEqual.click();
-//
-////        assertEquals("http://localhost:3000/calc", currentUrl);
-//        driver.quit();
-//    }
+//        String currentUrl = driver.getCurrentUrl();
+        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//        assertEquals("http://localhost:3000/login", currentUrl);
+
+        WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
+        btn4.click();
+        WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[2]"));
+        btn2.click();
+        WebElement btnPlus = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[1]"));
+        btnPlus.click();
+        WebElement btn1  = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[1]"));
+        btn1.click();
+        WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
+        btn0.click();
+
+        WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
+        btnEqual.click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Wait up to 10 seconds
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = driver.switchTo().alert();
+
+        // Get the text from the alert
+        String alertText = alert.getText();
+
+        // Assert that the alert text is equal to the expected text
+        assertEquals("Login as an admin to view the result.", alertText);
+
+        // Accept the alert (click OK)
+        alert.accept();
+
+        driver.quit();
+    }
 }
