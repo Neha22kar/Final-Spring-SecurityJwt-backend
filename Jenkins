@@ -4,7 +4,7 @@ pipeline {
     // Define tools section to install Maven
     tools {
         // Install Maven with the specified name and version
-        maven 'Maven3.9.5'
+        maven 'Maven'
     }
 
     stages {
