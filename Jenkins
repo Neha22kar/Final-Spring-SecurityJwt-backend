@@ -13,7 +13,7 @@ pipeline {
                 // Use the installed Maven for your build
                 script {
                     // Example Maven build command
-                    sh 'mvn clean install'
+                   bat'mvn clean install'
                 }
             }
         }
