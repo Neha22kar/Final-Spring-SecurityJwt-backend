@@ -1,0 +1,22 @@
+pipeline {
+     agent any
+      tools{
+             maven 'maven 3.9.5'
+           }
+     stages {
+          stage ('Hello') {
+             steps {
+                  echo 'hello cal'
+             }
+          }
+        
+     }
+     stages {
+          stage ('Build') {
+             steps {
+               bat   'mvn clean install test'
+             }
+          }
+        
+     }
+}
