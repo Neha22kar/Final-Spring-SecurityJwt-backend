@@ -1,22 +1,22 @@
 pipeline {
-     agent any
-      tools{
-             maven 'maven 3.9.5'
-           }
-     stages {
-          stage ('Hello') {
-             steps {
-                  echo 'hello cal'
-             }
-          }
-        
-     }
-     stages {
-          stage ('Build') {
-             steps {
-               bat   'mvn clean install test'
-             }
-          }
-        
-     }
+    agent any
+
+    // Define tools section to install Maven
+    tools {
+        // Install Maven with the specified name and version
+        maven 'Maven3.9.5'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Use the installed Maven for your build
+                script {
+                    // Example Maven build command
+                    sh 'mvn clean install'
+                }
+            }
+        }
+        // Add more stages as needed
+    }
 }
