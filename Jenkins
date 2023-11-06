@@ -3,31 +3,42 @@ pipeline {
 
     stages {
         stage('Checkout') {
-           steps {
-              script {
-                  git branch: 'main' , credentialsId: '4ed3b00b-8c87-4563-8829-b054beea27b6'
-                     }
-                 } 
-         }
-  }
-  stage('Build ') {
             steps {
-                
                 script {
-              
-                   bat 'mvn clean install'
+                    // Checkout the source code from the Git repository
+                    git branch: 'main', credentialsId: '4ed3b00b-8c87-4563-8829-b054beea27b6', url: 'https://github.com/Neha22kar/Final-Spring-SecurityJwt-backend.git/'
                 }
-       }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Build the project using Maven
+                    bat 'mvn clean install'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    // Run tests using Maven
+                    bat 'mvn clean test'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Clean up or perform any post-build actions here
+        }
+        success {
+            echo 'Pipeline succeeded! All stages completed successfully.'
+        }
+        failure {
+            echo 'Pipeline failed! At least one stage has failed.'
+        }
+    }
 }
-  
-stage('Test') {
-           steps {
-              script {
-                  bat 'mvn clean test'
-                     }
-                 } 
-         }
- }
-
-    
-
