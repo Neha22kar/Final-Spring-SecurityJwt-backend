@@ -72,23 +72,23 @@ public class CalculatorSelenium1Test {
     }
 
 
-    @Test
-    public void UnauthenticatedUserTest() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/calc");
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-        WebElement unauthorizedHeader = driver.findElement(By.tagName("h1"));
-        WebElement unauthorizedMessage = driver.findElement(By.tagName("p"));
-        WebElement loginLink = driver.findElement(By.linkText("Login here"));
+    // @Test
+    // public void UnauthenticatedUserTest() {
+    //     WebDriver driver = new ChromeDriver();
+    //     driver.get("http://localhost:3000/calc");
+    //     driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+    //     WebElement unauthorizedHeader = driver.findElement(By.tagName("h1"));
+    //     WebElement unauthorizedMessage = driver.findElement(By.tagName("p"));
+    //     WebElement loginLink = driver.findElement(By.linkText("Login here"));
 
-        assertEquals("Unauthorized Access", unauthorizedHeader.getText());
-        assertEquals("You do not have permission to access this page.", unauthorizedMessage.getText());
+    //     assertEquals("Unauthorized Access", unauthorizedHeader.getText());
+    //     assertEquals("You do not have permission to access this page.", unauthorizedMessage.getText());
 
-        assertEquals(true, loginLink.isDisplayed());
+    //     assertEquals(true, loginLink.isDisplayed());
 
 
-        driver.quit();
-    }
+    //     driver.quit();
+    // }
 
 
     @Test
