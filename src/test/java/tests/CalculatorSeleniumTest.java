@@ -148,7 +148,7 @@ public class CalculatorSeleniumTest {
 
         loginButton.click();
 
-       // driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 
         WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
         btn4.click();
