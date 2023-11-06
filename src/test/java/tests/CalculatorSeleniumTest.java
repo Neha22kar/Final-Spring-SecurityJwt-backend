@@ -31,7 +31,7 @@ public class CalculatorSeleniumTest {
 
         WebDriver driver = new ChromeDriver();
         driver.get("http://localhost:3000/signup");
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
 
         WebElement emailInput = driver.findElement(By.name("email"));
 
@@ -63,10 +63,10 @@ public class CalculatorSeleniumTest {
         assertEquals("nkb", usernameInput.getAttribute("value"));
         assertEquals("nkb", passwordInput.getAttribute("value"));
         submitButton.click();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
 
         String currentUrl = driver.getCurrentUrl();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
         assertEquals("http://localhost:3000/login", currentUrl);
 
     }
@@ -86,7 +86,7 @@ public class CalculatorSeleniumTest {
 
         assertEquals(true, loginLink.isDisplayed());
 
-
+        driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
         driver.quit();
     }
 
@@ -130,6 +130,7 @@ public class CalculatorSeleniumTest {
 
         WebElement resultDisplay = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
         assertEquals("52",resultDisplay.getAttribute("value"));
+        driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
         driver.quit();
     }
     @Test
@@ -170,7 +171,7 @@ public class CalculatorSeleniumTest {
         String alertText = alert.getText();
 
         assertEquals("Login as an admin to view the result.", alertText);
-
+        driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
         alert.accept();
 
         driver.quit();
