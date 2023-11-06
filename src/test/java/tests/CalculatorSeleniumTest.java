@@ -147,10 +147,7 @@ public class CalculatorSeleniumTest {
 
         loginButton.click();
 
-//
-//        String currentUrl = driver.getCurrentUrl();
         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-//        assertEquals("http://localhost:3000/login", currentUrl);
 
         WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
         btn4.click();
@@ -165,18 +162,15 @@ public class CalculatorSeleniumTest {
 
         WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
         btnEqual.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Wait up to 10 seconds
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.alertIsPresent());
 
         Alert alert = driver.switchTo().alert();
 
-        // Get the text from the alert
         String alertText = alert.getText();
 
-        // Assert that the alert text is equal to the expected text
         assertEquals("Login as an admin to view the result.", alertText);
 
-        // Accept the alert (click OK)
         alert.accept();
 
         driver.quit();
