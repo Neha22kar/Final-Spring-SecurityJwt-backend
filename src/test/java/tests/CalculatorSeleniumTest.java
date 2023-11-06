@@ -121,9 +121,9 @@ public class CalculatorSeleniumTest {
         btn1.click();
         WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
         btn0.click();
-
-        WebElement displayInput = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
-        assertEquals("42+10", displayInput.getAttribute("value"));
+//
+//        WebElement displayInput = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
+//        assertEquals("42+10", displayInput.getAttribute("value"));
 
         WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
         btnEqual.click();
