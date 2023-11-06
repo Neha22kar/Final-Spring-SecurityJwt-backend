@@ -108,7 +108,7 @@ public class CalculatorSeleniumTest {
        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 
         String currentUrl = driver.getCurrentUrl();
-       // driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         assertEquals("http://localhost:3000/login", currentUrl);
 
         WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
