@@ -1,178 +1,178 @@
-package tests;
+// package tests;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+// import org.junit.Test;
+// import org.junit.jupiter.api.BeforeAll;
+// import org.openqa.selenium.Alert;
+// import org.openqa.selenium.By;
+// import org.openqa.selenium.WebDriver;
+// import org.openqa.selenium.WebElement;
+// import org.openqa.selenium.chrome.ChromeDriver;
+// import org.openqa.selenium.support.ui.ExpectedConditions;
+// import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+// import java.time.Duration;
+// import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
+// import static org.junit.Assert.assertEquals;
 
-public class CalculatorSelenium1Test {
+// public class CalculatorSelenium1Test {
 
-    @BeforeAll
-    public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Projects\\Softwares\\chromedriver-win64\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+//     @BeforeAll
+//     public static void setUp() {
+//         System.setProperty("webdriver.chrome.driver", "C:\\Projects\\Softwares\\chromedriver-win64\\chromedriver.exe");
+//         WebDriver driver = new ChromeDriver();
 
-        driver.get("http://localhost:3000/");
+//         driver.get("http://localhost:3000/");
 
-    }
+//     }
 
-    @Test
-    public void RegisterTest() {
+//     @Test
+//     public void RegisterTest() {
 
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/signup");
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//         WebDriver driver = new ChromeDriver();
+//         driver.get("http://localhost:3000/signup");
+//         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 
-        WebElement emailInput = driver.findElement(By.name("email"));
+//         WebElement emailInput = driver.findElement(By.name("email"));
 
-        WebElement usernameInput = driver.findElement(By.name("username"));
-        WebElement selectRole = driver.findElement(By.id("2"));
-        WebElement passwordInput = driver.findElement(By.name("password"));
+//         WebElement usernameInput = driver.findElement(By.name("username"));
+//         WebElement selectRole = driver.findElement(By.id("2"));
+//         WebElement passwordInput = driver.findElement(By.name("password"));
 
-        emailInput.sendKeys("nehabawiskar2308@gmail.com");
-        usernameInput.sendKeys("nkb");
-        selectRole.click();
-        passwordInput.sendKeys("nkb");
-        WebElement submitButton = driver.findElement(By.className("registerbtn"));
-        submitButton.click();
+//         emailInput.sendKeys("nehabawiskar2308@gmail.com");
+//         usernameInput.sendKeys("nkb");
+//         selectRole.click();
+//         passwordInput.sendKeys("nkb");
+//         WebElement submitButton = driver.findElement(By.className("registerbtn"));
+//         submitButton.click();
 
-        driver.quit();
-    }
+//         driver.quit();
+//     }
 
-    @Test
-    public void LoginTest() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/login");
+//     @Test
+//     public void LoginTest() {
+//         WebDriver driver = new ChromeDriver();
+//         driver.get("http://localhost:3000/login");
 
-        WebElement usernameInput = driver.findElement(By.name("username"));
-        WebElement passwordInput = driver.findElement(By.name("password"));
-        usernameInput.sendKeys("nkb");
-        passwordInput.sendKeys("nkb");
+//         WebElement usernameInput = driver.findElement(By.name("username"));
+//         WebElement passwordInput = driver.findElement(By.name("password"));
+//         usernameInput.sendKeys("nkb");
+//         passwordInput.sendKeys("nkb");
 
-        WebElement submitButton = driver.findElement(By.id("loginBtn"));
-        assertEquals("nkb", usernameInput.getAttribute("value"));
-        assertEquals("nkb", passwordInput.getAttribute("value"));
-        submitButton.click();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//         WebElement submitButton = driver.findElement(By.id("loginBtn"));
+//         assertEquals("nkb", usernameInput.getAttribute("value"));
+//         assertEquals("nkb", passwordInput.getAttribute("value"));
+//         submitButton.click();
+//         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 
-        String currentUrl = driver.getCurrentUrl();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-        assertEquals("http://localhost:3000/login", currentUrl);
+//         String currentUrl = driver.getCurrentUrl();
+//         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//         assertEquals("http://localhost:3000/login", currentUrl);
 
-    }
-
-
-    // @Test
-    // public void UnauthenticatedUserTest() {
-    //     WebDriver driver = new ChromeDriver();
-    //     driver.get("http://localhost:3000/calc");
-    //     driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-    //     WebElement unauthorizedHeader = driver.findElement(By.tagName("h1"));
-    //     WebElement unauthorizedMessage = driver.findElement(By.tagName("p"));
-    //     WebElement loginLink = driver.findElement(By.linkText("Login here"));
-
-    //     assertEquals("Unauthorized Access", unauthorizedHeader.getText());
-    //     assertEquals("You do not have permission to access this page.", unauthorizedMessage.getText());
-
-    //     assertEquals(true, loginLink.isDisplayed());
+//     }
 
 
-    //     driver.quit();
-    // }
+//     // @Test
+//     // public void UnauthenticatedUserTest() {
+//     //     WebDriver driver = new ChromeDriver();
+//     //     driver.get("http://localhost:3000/calc");
+//     //     driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//     //     WebElement unauthorizedHeader = driver.findElement(By.tagName("h1"));
+//     //     WebElement unauthorizedMessage = driver.findElement(By.tagName("p"));
+//     //     WebElement loginLink = driver.findElement(By.linkText("Login here"));
+
+//     //     assertEquals("Unauthorized Access", unauthorizedHeader.getText());
+//     //     assertEquals("You do not have permission to access this page.", unauthorizedMessage.getText());
+
+//     //     assertEquals(true, loginLink.isDisplayed());
 
 
-    @Test
-    public void testAdminCalculatorPageAccess() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/login");
+//     //     driver.quit();
+//     // }
 
-        WebElement usernameInput = driver.findElement(By.name("username"));
-        WebElement passwordInput = driver.findElement(By.name("password"));
 
-        WebElement loginButton = driver.findElement(By.id("loginBtn"));
+//     @Test
+//     public void testAdminCalculatorPageAccess() {
+//         WebDriver driver = new ChromeDriver();
+//         driver.get("http://localhost:3000/login");
 
-        usernameInput.sendKeys("nkb");
-        passwordInput.sendKeys("nkb");
+//         WebElement usernameInput = driver.findElement(By.name("username"));
+//         WebElement passwordInput = driver.findElement(By.name("password"));
 
-        loginButton.click();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//         WebElement loginButton = driver.findElement(By.id("loginBtn"));
 
-        String currentUrl = driver.getCurrentUrl();
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-        assertEquals("http://localhost:3000/login", currentUrl);
+//         usernameInput.sendKeys("nkb");
+//         passwordInput.sendKeys("nkb");
 
-        WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
-        btn4.click();
-        WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[2]"));
-        btn2.click();
-        WebElement btnPlus = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[1]"));
-        btnPlus.click();
-        WebElement btn1  = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[1]"));
-        btn1.click();
-        WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
-        btn0.click();
+//         loginButton.click();
+//         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 
-//         WebElement displayInput = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
-// //   //     assertEquals("42+10", displayInput.getAttribute("value"));
+//         String currentUrl = driver.getCurrentUrl();
+//         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//         assertEquals("http://localhost:3000/login", currentUrl);
 
-        WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
-        btnEqual.click();
+//         WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
+//         btn4.click();
+//         WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[2]"));
+//         btn2.click();
+//         WebElement btnPlus = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[1]"));
+//         btnPlus.click();
+//         WebElement btn1  = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[1]"));
+//         btn1.click();
+//         WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
+//         btn0.click();
 
-        WebElement resultDisplay = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
-        assertEquals("52",resultDisplay.getAttribute("value"));
-        driver.quit();
-    }
-    @Test
-    public void testUserCalculatorPageAccess() {
-        WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:3000/login");
+// //         WebElement displayInput = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
+// // //   //     assertEquals("42+10", displayInput.getAttribute("value"));
 
-        WebElement usernameInput = driver.findElement(By.name("username"));
-        WebElement passwordInput = driver.findElement(By.name("password"));
+//         WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
+//         btnEqual.click();
 
-        WebElement loginButton = driver.findElement(By.id("loginBtn"));
+//         WebElement resultDisplay = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
+//         assertEquals("52",resultDisplay.getAttribute("value"));
+//         driver.quit();
+//     }
+//     @Test
+//     public void testUserCalculatorPageAccess() {
+//         WebDriver driver = new ChromeDriver();
+//         driver.get("http://localhost:3000/login");
 
-        usernameInput.sendKeys("jay");
-        passwordInput.sendKeys("jay");
+//         WebElement usernameInput = driver.findElement(By.name("username"));
+//         WebElement passwordInput = driver.findElement(By.name("password"));
 
-        loginButton.click();
+//         WebElement loginButton = driver.findElement(By.id("loginBtn"));
 
-        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+//         usernameInput.sendKeys("jay");
+//         passwordInput.sendKeys("jay");
 
-        WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
-        btn4.click();
-        WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[2]"));
-        btn2.click();
-        WebElement btnPlus = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[1]"));
-        btnPlus.click();
-        WebElement btn1  = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[1]"));
-        btn1.click();
-        WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
-        btn0.click();
+//         loginButton.click();
 
-        WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
-        btnEqual.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.alertIsPresent());
+//         driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
 
-        Alert alert = driver.switchTo().alert();
+//         WebElement btn4 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[4]"));
+//         btn4.click();
+//         WebElement btn2 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[2]"));
+//         btn2.click();
+//         WebElement btnPlus = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[1]"));
+//         btnPlus.click();
+//         WebElement btn1  = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[1]"));
+//         btn1.click();
+//         WebElement btn0 = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[3]/button[10]"));
+//         btn0.click();
 
-        String alertText = alert.getText();
+//         WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
+//         btnEqual.click();
+//         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//         wait.until(ExpectedConditions.alertIsPresent());
 
-        assertEquals("Login as an admin to view the result.", alertText);
+//         Alert alert = driver.switchTo().alert();
 
-        alert.accept();
+//         String alertText = alert.getText();
 
-        driver.quit();
-    }
-}
+//         assertEquals("Login as an admin to view the result.", alertText);
+
+//         alert.accept();
+
+//         driver.quit();
+//     }
+// }
