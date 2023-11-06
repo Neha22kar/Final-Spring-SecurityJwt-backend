@@ -171,7 +171,7 @@ public class CalculatorSeleniumTest {
         String alertText = alert.getText();
 
         assertEquals("Login as an admin to view the result.", alertText);
-   //     driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
+       driver.manage().timeouts().implicitlyWait(9000, TimeUnit.SECONDS);
         alert.accept();
 
         driver.quit();
