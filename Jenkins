@@ -32,7 +32,7 @@ pipeline {
 
     post {
         always {
-            // Clean up or perform any post-build actions here
+            bat 'mvn clean test'
         }
         success {
             echo 'Pipeline succeeded! All stages completed successfully.'
