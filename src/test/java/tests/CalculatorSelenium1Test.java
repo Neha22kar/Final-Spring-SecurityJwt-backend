@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
-public class CalculatorSeleniumTest {
+public class CalculatorSelenium1Test {
 
     @BeforeAll
     public static void setUp() {
