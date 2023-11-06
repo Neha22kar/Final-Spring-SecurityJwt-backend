@@ -2,15 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Build ') {
+        stage('Checkout') {
+           steps {
+              script {
+                  git branch: 'main' , credentialsId: '4ed3b00b-8c87-4563-8829-b054beea27b6'
+                     }
+                 } 
+         }
+    }
+  stage('Build ') {
             steps {
                 
                 script {
               
-                   bat'mvn clean install'
+                   bat 'mvn clean install'
                 }
             }
         }
+    stages {
+        stage('Test') {
+           steps {
+              script {
+                  bat 'mvn clean test'
+                     }
+                 } 
+         }
+    }
 
     }
 }
