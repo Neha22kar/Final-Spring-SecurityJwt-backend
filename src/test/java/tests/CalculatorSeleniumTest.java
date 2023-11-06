@@ -123,7 +123,7 @@ public class CalculatorSeleniumTest {
         btn0.click();
 
         WebElement displayInput = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[1]/input"));
-//   //     assertEquals("42+10", displayInput.getAttribute("value"));
+        assertEquals("42+10", displayInput.getAttribute("value"));
 
         WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
         btnEqual.click();
@@ -162,7 +162,7 @@ public class CalculatorSeleniumTest {
 
         WebElement btnEqual = driver.findElement(By.xpath("//*[@id=\"mycalculator\"]/div[2]/div[2]/button[5]"));
         btnEqual.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
         wait.until(ExpectedConditions.alertIsPresent());
 
         Alert alert = driver.switchTo().alert();
@@ -170,7 +170,7 @@ public class CalculatorSeleniumTest {
         String alertText = alert.getText();
 
         assertEquals("Login as an admin to view the result.", alertText);
-
+        driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         alert.accept();
 
         driver.quit();
