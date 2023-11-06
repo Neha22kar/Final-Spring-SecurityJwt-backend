@@ -43,7 +43,8 @@ public class CalServlet1 extends HttpServlet {
                 printWriter.write(json);
             }
 
-            public double calculate(ExpressionStack[] expressions) {
+            public double
+            calculate(ExpressionStack[] expressions) {
                 List<Double> numbers = new ArrayList<>();
                 List<String> operators = new ArrayList<>();
 
