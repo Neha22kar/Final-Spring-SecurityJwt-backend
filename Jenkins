@@ -17,17 +17,16 @@ pipeline {
               
                    bat 'mvn clean install'
                 }
-            }
-        }
-    stages {
-        stage('Test') {
+}
+  
+stage('Test') {
            steps {
               script {
                   bat 'mvn clean test'
                      }
                  } 
          }
-    }
+ }
 
     
 }
